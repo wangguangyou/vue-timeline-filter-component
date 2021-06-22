@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld ref="vtf" style="width:300px" :list="list">
+    <HelloWorld @change="change1" ref="vtf" style="width:300px" :list="list">
       <template #slider="scoped">
         <el-slider @input="change" style="margin-top:-19px" v-model="scoped.value" range :max="scoped.data.length-1">
         </el-slider>
@@ -47,7 +47,9 @@
     methods:{
       change(val){
         this.$refs.vtf.value = val
-        console.log(val)
+      },
+      change1(val1){
+        console.log(val1)
       }
     }
   }

@@ -57,7 +57,9 @@
         this.emit()
       },
       emit() {
-        this.$emit('change', [this.data[this.value[0]], this.data[this.value[1]]])
+        let left = this.data[this.value[0]]
+        let right = this.data[this.value[1]]
+        this.$emit('change', [{label:left.label,value:left.value},{label:right.label,value:right.value}])
       },
       onSliderChange() {
         this.emit()
@@ -65,7 +67,6 @@
       onMouseover(event, index) {
         let { target } = event
         this.hover = { box: target.getBBox(), target: this.data[index] }
-        console.log(this.hover)
       },
       formatTooltip(i) {
         if (this.data && this.data[i]) {
